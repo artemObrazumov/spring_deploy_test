@@ -24,6 +24,9 @@ jobs:
       - name: List local files in directory
         run: ls
 
+      - name: List local files in build directory
+        run: ls build/libs
+
       - name: List files in directory
         run: ls -la
 
@@ -36,5 +39,5 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > private_key
           chmod 600 private_key
-          scp -i private_key */*.jar $VPS_USER@$VPS_HOST:$VPS_PATH
+          scp -i private_key build/libs/*.jar $VPS_USER@$VPS_HOST:$VPS_PATH
           ssh -i private_key $VPS_USER@$VPS_HOST "java -jar $VPS_PATH/sampleapp.jar &"
