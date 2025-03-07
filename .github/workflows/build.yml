@@ -21,14 +21,9 @@ jobs:
       - name: Gradle build
         run: ./gradlew build
 
-      - name: List local files in directory
-        run: ls
-
-      - name: List local files in build directory
-        run: ls build/libs
-
-      - name: List files in directory
-        run: ls -la
+      - name: Add VPS to known_hosts
+        run: |
+          ssh-keyscan -H 185.133.40.247 >> ~/.ssh/known_hosts
 
       - name: Copy to VPS
         env:
