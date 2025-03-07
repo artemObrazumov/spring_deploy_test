@@ -23,6 +23,7 @@ jobs:
 
       - name: Add VPS to known_hosts
         run: |
+          mkdir -p ~/.ssh
           ssh-keyscan -H 185.133.40.247 >> ~/.ssh/known_hosts
 
       - name: Copy to VPS
