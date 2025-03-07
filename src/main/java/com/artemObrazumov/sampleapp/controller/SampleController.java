@@ -18,7 +18,7 @@ public class SampleController {
 
     @GetMapping
     public String index() {
-        return "It's working! And it's updated";
+        return "It's working! And it's updated (2)";
     }
 
     @GetMapping("/sample-data")
